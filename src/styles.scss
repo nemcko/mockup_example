@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/css/font-awesome.css";
+@import "~font-awesome/scss/font-awesome";
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/root';
+

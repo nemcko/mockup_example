@@ -1,0 +1,34 @@
+<div class="d-flex flex-row justify-content-between mt-2">
+    <div>
+        <span class="h3">RESTful Mockup</span>
+        <small class="mx-1">example of using <a href="https://github.com/nemcko/mockprosrv" target="_blank">mockprosrv</a> library</small>
+    </div>
+    <div class="btn-group btn-group-sm">
+        <span class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></span>
+        <input type="text" class="px-1 text-primary" placeholder="Search..." #search
+            (keyup.enter)="onEnter(search.value)">
+    </div>
+</div>
+<div class="row">
+    <ngx-datatable class="bootstrap" [rows]="rows" [columnMode]="ColumnMode.force" [headerHeight]="50"
+        [footerHeight]="50" rowHeight="auto" [externalPaging]="true" [count]="page.count" [offset]="page.offset"
+        [limit]="page.limit" (page)="setPage($event)">
+        <ngx-datatable-column *ngFor="let col of columns; let i = index" [name]="col.name">
+            <ng-template ngx-datatable-header-template>
+                {{ col.name }}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column [sortable]="false" [width]="'60px'">
+            <ng-template ngx-datatable-header-template>
+                <button type="button" class="btn btn-secondary btn-sm float-right" (click)="onNewRow()"><i
+                        class="fa fa-plus" aria-hidden="true"></i></button>
+            </ng-template>
+            <ng-template ngx-datatable-cell-template let-row="row">
+                <button type="button" class="btn btn-outline-secondary btn-sm" (click)="onEditRow(row)"><i
+                        class="fa fa-pencil" aria-hidden="true"></i></button>
+                <button type="button" class="btn btn-outline-secondary btn-sm mx-1" (click)="onDeleteRow(row)"><i
+                        class="fa fa-trash" aria-hidden="true"></i></button>
+            </ng-template>
+        </ngx-datatable-column>
+    </ngx-datatable>
+</div>

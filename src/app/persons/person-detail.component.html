@@ -1,0 +1,46 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-title">Personal information</h4>
+    <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title"
+        (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="personData">
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" class="form-control" ngbAutofocus formControlName="name" id="name"
+                placeholder="person's name">
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select class="form-select" class="form-control" formControlName="gender" id="gender">
+                        <option selected>Select gender type</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                      </select>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" class="form-control" formControlName="age" id="age"
+                        placeholder="age of the person">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="company">Company</label>
+            <input type="text" class="form-control" formControlName="company" id="company"
+                placeholder="person's company">
+        </div>
+
+
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="saveData()">Save</button>
+</div>
